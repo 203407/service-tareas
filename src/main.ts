@@ -6,12 +6,14 @@ import express from "express";
 
 import { config } from "./config";
 import { healthRouter } from "./health/health-router";
+import { tareaRouter } from "./tareas/infraestructure/Tarea-router";
 
 function boostrap() {
   const app = express();
 
   app.use(bodyParser.json());
   app.use("/health", healthRouter);
+  app.use("/", tareaRouter);
 
   const { port } = config.server;
 
